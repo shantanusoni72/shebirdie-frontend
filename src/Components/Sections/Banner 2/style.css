@@ -1,0 +1,45 @@
+.banner_2 {
+    background-color: var(--primary);
+    color: var(--white);
+    padding-block: 70px;
+    padding-inline: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.banner_2 h1 {
+    width: 60%;
+    font-size: var(--h1);
+    font-weight: var(--fw);
+}
+
+.banner_2 p {
+    width: 60%;
+    font-size: var(--h3);
+    font-weight: var(--fw);
+    line-height: 30px;
+}
+
+.cards {
+    display: flex;
+    width: 90%;
+    gap: 20px;
+}
+
+.card_2 {
+    text-align: center;
+}
+
+.card_2 img {
+    width: 100%;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+}
+
+.card_2 p {
+    width: 100%;
+    font-size: var(--h4);
+    color: var(--white);
+}

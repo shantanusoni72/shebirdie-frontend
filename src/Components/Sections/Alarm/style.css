@@ -1,0 +1,21 @@
+.alarm {
+    padding: 11px;
+    background-color: var(--primary);
+    text-align: center;
+}
+
+.alarm:hover {
+    background-color: #2947c0;
+    cursor: pointer;
+}
+
+.alarm p {
+    color: var(--white);
+    font-size: var(--h4);
+    letter-spacing: var(--letter-spacing);
+    font-weight: calc(var(--fw) + 100);
+    text-transform: capitalize;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
