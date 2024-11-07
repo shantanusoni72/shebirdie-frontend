@@ -27,18 +27,24 @@
     display: flex;
     flex-direction: row;
     text-align: start;
+    justify-content: space-between;
     margin-inline: 40px;
     flex-wrap: wrap;
 }
 
 .card {
-    width: 25%;
+    width: 20%;
+    justify-content: center;
     align-items: center;
     margin-top: 40px;
 }
 
 .card img {
     width: 15%;
+}
+
+.card.image img {
+    width: 50%;
 }
 
 .card h1 {
@@ -52,4 +58,62 @@
     font-weight: calc(var(--fw) - 100);
     line-height: 25px;
     color: var(--grey);
+}
+
+@media screen and (max-width: 992px) {
+    .banner {
+        padding: 54px 0px;
+        gap: 0px;
+    }
+    
+    .banner h1 {
+        width: 90%;
+        font-size: calc(var(--h1) + 5px);
+        font-weight: calc(var(--fw) + 100);
+    }
+    
+    .banner p {
+        width: 90%;
+        font-size: calc(var(--h3) + 3px);
+        line-height: 30px;
+    }
+    
+    .show-cards {
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .card {
+        width: 50%;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .card h1 {
+        width: 100%;
+        font-size: var(--h3);
+    }
+    
+    .card p {
+        width: 90%;
+        font-size: calc(var(--h3) - 2px);
+        font-weight: calc(var(--fw) - 100);
+        line-height: 25px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .banner {
+        padding: 54px 0px;
+        gap: 0px;
+    }
+    
+    .banner h1 {
+        width: 90%;
+        font-size: calc(var(--h3) + 5px);
+    }
+    
+    .card {
+        width: 90%;
+    }
 }
