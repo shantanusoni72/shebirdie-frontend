@@ -1,0 +1,10 @@
+.palette {
+    display: flex;
+    gap: 10px;
+}
+
+.palette_box {
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid var(--grey);
+}

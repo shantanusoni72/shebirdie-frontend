@@ -9,7 +9,7 @@ export default function section_1(props) {
       <div className="text">
         <h1>{props.title}</h1>
         <p>{props.paragraph}</p>
-      <img src={props.textImage} alt="image_hehe_boi" />
+        <img src={props.textImage} alt="image_hehe_boi" />
         <Button text="Shop Now" link="shop-now" />
       </div>
       <div className="media">

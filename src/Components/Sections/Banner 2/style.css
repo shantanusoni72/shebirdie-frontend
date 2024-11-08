@@ -24,11 +24,14 @@
 
 .cards {
     display: flex;
+    flex-wrap: wrap;
     width: 90%;
     gap: 20px;
+    justify-content: center;
 }
 
 .card_2 {
+    width: 30vh;
     text-align: center;
 }
 

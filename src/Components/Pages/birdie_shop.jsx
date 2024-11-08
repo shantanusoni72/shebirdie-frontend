@@ -1,4 +1,5 @@
 import React from 'react'
+import Hero from '../Sections/Hero/hero';
 import Banner from '../Sections/Banner/banner';
 import Banner2 from '../Sections/Banner 2/banner_2';
 import Section1 from '../Sections/Section-1/section_1';
@@ -6,11 +7,13 @@ import Text_Image_1 from '../../assets/section-1-image.png';
 import Text_Image_2 from '../../assets/travel_leisure.png';
 import Section_1_Image from '../../assets/birdie-chart-new.png';
 import Section_1_Video from '../../assets/birdie_1.mp4';
+import Review from '../Sections/Review/review';
 import Testimonials from '../Sections/Testimonials/testimonials';
 
 export default function birdie_shop() {
     return (
         <div className='birdie_shop'>
+            <Hero />
             <Banner
                 title='1 in 3 women in the U.S. is assaulted in her lifetime.'
                 paragraph='This is personal because it includes 1 in 3 of our daughters, sisters, and friends.'
@@ -36,6 +39,7 @@ export default function birdie_shop() {
                 textImage={Text_Image_2}
                 mainMedia={Section_1_Image}
             />
+            <Review />
             <Banner
                 title='Excited to Give'
                 paragraph='Your purchase supports our passionate partners who work for the safety and empowerment of women. They’re writing legislative reform, educating students on their Title IX rights, providing shelter and services to survivors and families, and creating powerful opportunities to connect girls and women to their unlimited potential.'
