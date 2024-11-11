@@ -18,13 +18,24 @@
 
 .reviews {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
 }
 
+.video_carousel {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+}
+
+.video_card video {
+    border-radius: 5px;
+}
+
 .review_card {
-    width: 55vh;
+    width: 300px;
     border: 1px solid var(--primary);
     padding-inline: 15px;
     padding-block: 30px;
@@ -45,4 +56,10 @@
     font-size: calc(var(--h4) + 4px);
     font-weight: calc(var(--fw) + 300);
     color: var(--primary);
+}
+
+.rightArrowCarousel {
+    padding: 10px;
+    background-color: red;
+    color: black;
 }

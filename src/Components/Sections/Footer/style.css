@@ -4,6 +4,7 @@
     padding-block: 30px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .row {
@@ -12,7 +13,9 @@
     letter-spacing: 2px;
     text-align: center;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .row p a {
@@ -40,6 +43,7 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
+    font-weight: calc(var(--fw) + 200);
 }
 
 .col h1 {
@@ -52,6 +56,7 @@
 .shop-list, .help-list {
     list-style: none;
     font-size: var(--h4);
+    text-transform: uppercase;
 }
 
 .shop-list li, .help-list li {

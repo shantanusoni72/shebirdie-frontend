@@ -47,9 +47,11 @@
     color: var(--white);
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
     .banner_2 {
         gap: 10px;
+        padding-inline: 5px;
+        padding-block: 35px;
     }
     
     .banner_2 h1 {
@@ -67,7 +69,7 @@
     
     .cards {
         display: flex;
-        width: 90%;
+        width: 100%;
         gap: 20px;
     }
     

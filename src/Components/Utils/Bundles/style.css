@@ -1,5 +1,6 @@
 .bundle {
-    width: 100%;
+    width: 12vw;
+    height: 45vh;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -8,7 +9,7 @@
     justify-content: space-around;
 }
 
-.bundle:active {
+.bundle.active {
     background-color: var(--secondary);
     border: 1px solid var(--primary);
 }

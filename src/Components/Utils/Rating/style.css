@@ -1,3 +1,8 @@
+.rating_board {
+    width: 10vw;
+    display: flex;
+}
+
 .rating_board svg {
     color: var(--primary);
 }

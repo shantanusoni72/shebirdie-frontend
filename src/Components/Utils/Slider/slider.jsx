@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './style.css';
 
-export default function Slider() {
+export default function Slider(props) {
     const sliderMedias = [
         'https://www.shesbirdie.com/cdn/shop/files/swan.jpg',
         'https://www.shesbirdie.com/cdn/shop/files/pos-2-updates.png',
@@ -32,12 +32,15 @@ export default function Slider() {
             </div>
             <div className="slider-row">
                 {
-                    sliderMedias.map((item) => (
+                    sliderMedias.map((item, index) => (
                         item.slice(-4) === '.mp4' ?
                             <video onClick={() => setPresentImage(item)} width="320" height="240" control>
                                 <source src={item} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
+                            :
+                            index === 0 ?
+                            <img onClick={() => setPresentImage(props.effect)} src={props.effect} alt="product" />
                             :
                             <img onClick={() => setPresentImage(item)} src={item} alt="product" />
                     ))

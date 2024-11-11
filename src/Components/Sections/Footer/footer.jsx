@@ -39,15 +39,15 @@ export default function footer() {
                 <div className="col third">
                 <h1>Help</h1>
                     <ul className='help-list'>
-                        <li><a>Contact Us</a></li>
-                        <li><a>FAQs</a></li>
-                        <li><a>Ambassador Program</a></li>
-                        <li><a>Download Birdie+ App</a></li>
-                        <li><a>Birdie+ Product Manual</a></li>
-                        <li><a>Privacy Policy</a></li>
-                        <li><a>Return Policy</a></li>
-                        <li><a>Terms of Service</a></li>
-                        <li><a>Shipping Policy</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Ambassador Program</a></li>
+                        <li><a href="#">Download Birdie+ App</a></li>
+                        <li><a href="#">Birdie+ Product Manual</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
                     </ul>
                 </div>
             </div>
