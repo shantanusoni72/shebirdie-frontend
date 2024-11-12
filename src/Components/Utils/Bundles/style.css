@@ -65,3 +65,17 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
 }
+
+@media screen and (max-width: 768px) {
+    .bundle {
+        width: 27vw;
+        height: 45vh;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .bundle {
+        width: 80%;
+        height: auto;
+    }
+}

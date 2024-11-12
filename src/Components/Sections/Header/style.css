@@ -1,3 +1,12 @@
+@keyframes openMobileMenu {
+    0% {
+        transform: translateX(-1000px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -56,6 +65,13 @@
     gap: 5px;
     padding: 15px;
     margin: auto;
+    z-index: 5;
+    position: absolute;
+    background-color: var(--white);
+}
+
+.mobile_menu {
+    display: none;
 }
 
 .shop_menu_1 {
@@ -138,10 +154,23 @@
         display: none;
     }
 
+    .mobile_menu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        width: 50%;
+        border: 1px solid var(--grey);
+        padding-bottom: 20px;
+        animation: openMobileMenu 0.4s;
+    }
+
+    .mobile_menu.disabled {
+        display: none;
+    }
+
     .menu.mobile {
         display: block;
         width: 100%;
-        border: 1px solid red;
     }
 
     .menu.mobile ul {
@@ -155,6 +184,17 @@
         flex-direction: column;
         gap: 5px;
         margin: 0px;
+        width: 90%;
+        border: 1px solid transparent;
+    }
+
+    .shop_menu.mobile .shop_menu_1 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .mobile_menu {
         width: 100%;
     }
 }

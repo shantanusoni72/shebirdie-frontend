@@ -13,8 +13,7 @@
     letter-spacing: 2px;
     text-align: center;
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    justify-content: space-around;
     gap: 20px;
 }
 
@@ -29,13 +28,20 @@
 }
 
 .col.first {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     text-align: center;
+}
+
+.col.first img {
+    width: 50%;
 }
 
 .col .social {
     list-style: none;
     display: flex;
-    gap: 7px;
+    gap: 10px;
 }
 
 .col.second, .col.third {
@@ -44,6 +50,7 @@
     flex-direction: column;
     gap: 10px;
     font-weight: calc(var(--fw) + 200);
+    padding-bottom: 30px;
 }
 
 .col h1 {
@@ -71,4 +78,11 @@
 .shop-list li a:hover, .help-list li a:hover {
     color: var(--black);
     text-decoration: underline;
+}
+
+@media screen and (max-width: 440px) {
+    .row {
+        flex-direction: column;
+        justify-content: space-between;
+    }
 }

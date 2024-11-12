@@ -63,3 +63,9 @@
     background-color: red;
     color: black;
 }
+
+@media screen and (max-width: 768px) {
+    .review_card {
+        width: 90%;
+    }
+}

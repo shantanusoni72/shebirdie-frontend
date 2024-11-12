@@ -1,7 +1,68 @@
+// Imports
+import Text_Image_1 from '../assets/section-1-image.png';
+import Text_Image_2 from '../assets/travel_leisure.png';
+import Section_1_Image from '../assets/birdie-chart-new.png';
+import Section_1_Video from '../assets/birdie_1.mp4';
+
+import Banner_2_Media_Image_1 from '../assets/image-1_400x.webp';
+import Banner_2_Media_Image_2 from '../assets/image-2_400x.jpg';
+import Banner_2_Media_Image_3 from '../assets/image-3_400x.webp';
+import Banner_2_Media_Image_4 from '../assets/image-4_400x.webp';
+import Banner_2_Media_Image_5 from '../assets/image-5_400x.webp';
+
+import Review_Video_1 from '../assets/review-1.mp4';
+import Review_Video_2 from '../assets/review-2.mp4';
+import Review_Video_3 from '../assets/review-3.mp4';
+import Review_Video_4 from '../assets/review-4.mp4';
+import Review_Video_5 from '../assets/review-5.mp4';
+import Review_Video_6 from '../assets/review-6.mp4';
+
+// Banner 2
+export const banner_2_medias = {
+    'slide_1': { 
+        'image': Banner_2_Media_Image_1,
+        'text': 'On Public Transport' 
+    },
+
+    'slide_2': { 
+        'image': Banner_2_Media_Image_2, 
+        'text': 'Walking Around Campus' 
+    },
+    'slide_3': { 
+        'image': Banner_2_Media_Image_3, 
+        'text': 'Out on the Town' 
+    },
+    'slide_4': { 
+        'image': Banner_2_Media_Image_4, 
+        'text': 'For Your Child' 
+    },
+    'slide_5': { 
+        'image': Banner_2_Media_Image_5, 
+        'text': 'On Your Travels' 
+    }
+}
+
+// Two Columns
+export const two_columns_medias = {
+    'text_image_1': Text_Image_1,
+    'text_image_2': Text_Image_2,
+    'section_1_image': Section_1_Image,
+    'section_1_video': Section_1_Video
+}
+
 // Review
 export const reviews_heading = 'Trusted By 3,500,000+ Women';
 
 export const reviews_subheading = 'Hear what they have to say about Birdie!';
+
+export const review_videos = [
+    Review_Video_1,
+    Review_Video_2,
+    Review_Video_3,
+    Review_Video_4,
+    Review_Video_5,
+    Review_Video_6
+  ]
 
 export const reviews = [
     {

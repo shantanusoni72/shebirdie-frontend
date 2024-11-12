@@ -63,8 +63,6 @@
     .banner_2 p {
         width: 80%;
         font-size: var(--h3);
-        font-weight: var(--fw);
-        line-height: 30px;
     }
     
     .cards {
@@ -73,19 +71,21 @@
         gap: 20px;
     }
     
-    .card_2 {
-        text-align: center;
-    }
-    
-    .card_2 img {
-        width: 100%;
-        border: 1px solid var(--white);
-        border-radius: 10px;
-    }
-    
     .card_2 p {
         width: 100%;
         font-size: var(--h4);
-        color: var(--white);
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .banner_2 h1 {
+        width: 80%;
+        font-size: calc(var(--h2) - 2px);
+        text-align: center;
+    }
+    
+    .banner_2 p {
+        width: 80%;
+        font-size: calc(var(--h3) - 2px);
     }
 }

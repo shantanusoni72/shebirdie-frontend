@@ -1,6 +1,6 @@
 import React from 'react';
 import './style.css';
-import ImageLogo from '../../../assets/birdie-logo.png';
+import ImageLogo from '../../../assets/birdie-logo_light.png';
 
 export default function footer() {
     return (

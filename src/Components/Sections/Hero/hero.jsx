@@ -6,11 +6,14 @@ import Bundles from '../../Utils/Bundles/bundles';
 import Button from '../../Utils/Button/button';
 import Slider from '../../Utils/Slider/slider';
 import ProductChooser from '../../Utils/Product Chooser/productChooser';
+import Sub_Plans from '../../Utils/Subcription Plan/subs_plan';
 
 export default function Hero() {
     const [isStepOneHidden, HideStepOne] = useState(false);
     const [[bundleValue, beforePrice, afterPrice], setBundleValue] = useState([0, 0, 0]);
     const [getImageFromColorPalette, setImageFromColorPalette] = useState('https://www.shesbirdie.com/cdn/shop/files/cyan_68a52f3d-ed67-4091-9915-4c9f73f76d05_800x.jpg');
+    
+    const [getIndexOfProductChooser, setIndexOfProductChooser] = useState(null);
 
     const ToggleActiveClassList = (index) => {
         const bundles = document.querySelectorAll('.bundle');
@@ -72,12 +75,12 @@ export default function Hero() {
         'https://www.shesbirdie.com/cdn/shop/files/blossom-silver-star_800x.jpg',
         'https://www.shesbirdie.com/cdn/shop/files/swan_800x.jpg?v=1731002340'
     ]
-
+    // setElementFromProductChooser([...getElementFromProductChooser, ColorProducts[getIndexOfProductChooser]]);
     return (
         <div className='hero'>
             <div className="product-slider">
                 <Slider
-                    effect={getImageFromColorPalette} 
+                    effect={getImageFromColorPalette}
                 />
             </div>
             <div className="product-info">
@@ -89,9 +92,9 @@ export default function Hero() {
                 <p>This small device is <b>like having a fire alarm in your pocket</b>. When you pull the pin it flashes and beeps
                     incredibly loud so you can get the attention of everyone around you.
                 </p>
-                <ColorPalette 
+                <ColorPalette
                     color_products={ColorProducts}
-                    trigger={setImageFromColorPalette} 
+                    trigger={setImageFromColorPalette}
                 />
                 {
                     isStepOneHidden ?
@@ -100,7 +103,7 @@ export default function Hero() {
                             <div className="productChooser">
                                 {
                                     ColorProducts.map((item, index) => (
-                                        <ProductChooser image={item} />
+                                        <ProductChooser trigger={setIndexOfProductChooser} index={index} image={item} />
                                     ))
                                 }
                             </div>
@@ -108,7 +111,7 @@ export default function Hero() {
                                 <div className="product_heading">
                                     <p>Your {bundleValue}-pack includes:</p>
                                     <div>
-                                        <p style={{textDecoration:'line-through'}}>${beforePrice}</p>
+                                        <p style={{ textDecoration: 'line-through' }}>${beforePrice}</p>
                                         <p>${afterPrice}</p>
                                     </div>
                                 </div>
@@ -117,7 +120,7 @@ export default function Hero() {
                                         <div className="product_body_card">
                                             <div className="product_body_card_box">
                                             </div>
-                                            <p>Bundle #{i+1}</p>
+                                            <p>Bundle #{i + 1}</p>
                                         </div>
                                     ))}
                                 </div>
@@ -157,6 +160,7 @@ export default function Hero() {
                             />
                         </div>
                 }
+                <Sub_Plans />
             </div>
         </div>
     )

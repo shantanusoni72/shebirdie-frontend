@@ -1,6 +1,7 @@
 .palette {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .palette_box {
@@ -12,4 +13,9 @@
 
 .palette_box:hover {
     border: 1px solid var(--black);
+}
+
+@media screen and (max-width: 440px) {
+    .palette_box {
+    }
 }

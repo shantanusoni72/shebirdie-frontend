@@ -3,12 +3,29 @@ import './style.css';
 import BrandLogo from '../../../assets/birdie-logo.png'
 import Rating from '../../Utils/Rating/rating';
 
+function toggleMobileMenu() {
+  const mobile_menu = document.querySelector('.mobile_menu');
+  const menu_svg = document.querySelector('.hamburger .menu')
+  const close_svg = document.querySelector('.hamburger .close')
+
+  mobile_menu.classList.toggle('disabled');
+  if(mobile_menu.classList.contains('disabled')) {
+    close_svg.style.display = 'none';
+    menu_svg.style.display = 'inline';
+  } else {
+    close_svg.style.display = 'inline';
+    menu_svg.style.display = 'none';
+  }
+}
+
 export default function Header() {
-  const [showDesktopMenu, setDesktopMenu] = useState(false);
+  const [showDesktopMenuPart, setDesktopMenuPart] = useState(false);
+
   return (<>
     <div className='header'>
       <div className="hamburger">
-        <svg xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" /></svg>
+        <svg className='menu' onClick={toggleMobileMenu} xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="currentColor"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" /></svg>
+        <svg className='close' onClick={toggleMobileMenu} xmlns="http://www.w3.org/2000/svg" height="36px" viewBox="0 -960 960 960" width="36px" fill="currentColor"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg>
       </div>
 
       <div className="title">
@@ -17,7 +34,7 @@ export default function Header() {
 
       <div className="menu">
         <ul>
-          <li><a href='#' onMouseOver={() => setDesktopMenu(true)} onMouseOut={() => setDesktopMenu(false)}>Shop</a></li>
+          <li><a href='#' onMouseOver={() => setDesktopMenuPart(true)} onMouseOut={() => setDesktopMenuPart(false)}>Shop</a></li>
           <li><a href='#'>About Us</a></li>
           <li><a href='#'>Bulk Orders</a></li>
           <li><a href='#'>How It Works</a></li>
@@ -30,7 +47,7 @@ export default function Header() {
       </div>
     </div>
     {
-      showDesktopMenu ?
+      showDesktopMenuPart ?
         <div className="shop_menu">
           <div className="shop_menu_1">
             <div className="shop_menu_1_text">
@@ -98,7 +115,8 @@ export default function Header() {
         </div>
         : null
     }
-    <div className="mobile_menu">
+    
+    <div className="mobile_menu disabled">
       <div className="shop_menu mobile">
         <div className="shop_menu_1">
           <div className="shop_menu_1_text">
@@ -172,6 +190,6 @@ export default function Header() {
           <li><a href='#'>How It Works</a></li>
         </ul>
       </div>
-    </div>
+    </div> 
   </>)
 }
