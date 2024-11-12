@@ -8,6 +8,14 @@
     font-size: var(--h4);
 }
 
+.hamburger {
+    display: none;
+}
+
+.hamburger svg {
+    color: var(--grey);
+}
+
 .menu ul {
     display: flex;
     justify-content: space-around;
@@ -38,4 +46,115 @@
     transform: scale(1.2);
     transition: 0.4s;
     cursor: pointer;
+}
+
+.shop_menu {
+    width: 50vw;
+    border: 1px solid var(--grey);
+    border-top: 0px;
+    display: flex;
+    gap: 5px;
+    padding: 15px;
+    margin: auto;
+}
+
+.shop_menu_1 {
+    width: 50%;
+    border: 1px solid var(--black);
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
+
+.shop_menu_1_text {
+    width: 70%;
+    padding: 5px;
+}
+
+.shop_menu_1_text_flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.shop_menu_1_text_flex h1 {
+    font-size: calc(var(--h3) - 4px);
+    font-weight: calc(var(--fw) + 200);
+}
+
+.shop_menu_1_text_flex p {
+    padding: 5px;
+    background-color: var(--secondary);
+    border-radius: 5px;
+    font-size: calc(var(--h4) - 4px);
+    font-weight: var(--fw);
+    filter: opacity(0.9);
+}
+
+.shop_menu_1_text_rating {
+    display: flex;
+}
+
+.shop_menu_1_text_rating label {
+    font-size: calc(var(--h4) - 2px);
+    font-weight: calc(var(--fw) + 200);
+}
+
+.shop_menu_1_text p {
+    font-size: var(--h4);
+    font-weight: calc(var(--fw) + 100);
+    filter: opacity(0.8);
+}
+
+.shop_menu_1_text ul {
+    list-style: none;
+    font-size: var(--h4);
+    font-weight: calc(var(--fw) + 100);
+    filter: opacity(0.8);
+}
+
+.shop_menu_1_text ul li {
+    display: flex;
+    align-items: start;
+    gap: 5px;
+}
+
+.shop_menu_1_image {
+    width: 30%;
+}
+
+.shop_menu_1_image img {
+    width: 100%;
+}
+
+@media screen and (max-width: 992px) {
+    .hamburger {
+        display: block;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu.mobile {
+        display: block;
+        width: 100%;
+        border: 1px solid red;
+    }
+
+    .menu.mobile ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .shop_menu.mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin: 0px;
+        width: 100%;
+    }
 }

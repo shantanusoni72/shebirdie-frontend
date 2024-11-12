@@ -14,8 +14,8 @@ import * as Interface from '../interface.js';
 export default function birdie_shop() {
     return (
         <div className='birdie_shop'>
-            <Hero />
-            <Banner
+            {/* <Hero /> */}
+            {/* <Banner
                 title='1 in 3 women in the U.S. is assaulted in her lifetime.'
                 paragraph='This is personal because it includes 1 in 3 of our daughters, sisters, and friends.'
                 whichCards={'none'}
@@ -43,7 +43,7 @@ export default function birdie_shop() {
             <Review
                 reviews_heading={Interface.reviews_heading}
                 reviews_subheading={Interface.reviews_subheading}
-                customers_reviews={Interface.reviews} 
+                customers_reviews={Interface.reviews}
             />
             <Banner
                 title='Excited to Give'
@@ -51,9 +51,9 @@ export default function birdie_shop() {
                 whichCards={'imageCards'}
             />
             <Testimonials
-                testimonialText={Interface.testimonial_text} 
+                testimonialText={Interface.testimonial_text}
                 testimonialDetails={Interface.testimonial_details}
-            />
+            /> */}
         </div>
     )
 }

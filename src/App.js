@@ -6,7 +6,6 @@ import Footer from './Components/Sections/Footer/footer';
 
 import BirdieShop from './Components/Pages/birdie_shop';
 
-
 function App() {
   return (
     <Layout>
