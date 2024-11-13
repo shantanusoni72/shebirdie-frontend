@@ -7,16 +7,22 @@
 }
 
 .product-slider {
-    width: fit-content;
+    width: 50%;
     height: fit-content;
 }
 
 .product-info {
     padding-block: 20px;
-    padding-inline: 30px;
+    padding-inline: 50px;
     width: 20%;
     flex: 1;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-main, .product-interface {
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -28,14 +34,12 @@
 }
 
 .step_1 {
-    padding-right: 40px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .step_2 {
-    padding-right: 40px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -56,6 +60,7 @@
 .bundles {
     display: flex;
     gap: 10px;
+    overflow: hidden;
 }
 
 .productChooser {
@@ -133,9 +138,31 @@
 
 @media screen and (max-width: 768px) {
     .hero {
-        flex-direction: column;
+        /* flex-direction: column; */
+    }
+
+    .product-info {
+        padding: 0px;
+        padding-block: 20px;
+        width: 45%;
     }
     
+    .product-info p {
+        font-size: var(--h3);
+    }
+
+    .product-slider {
+        width: 45%;
+        height: fit-content;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .hero {
+        flex-direction: column;
+        padding: 15px;
+    }
+
     .product-info {
         padding: 0px;
         padding-block: 20px;
@@ -145,16 +172,19 @@
     .product-info p {
         font-size: var(--h3);
     }
-}
 
-@media screen and (max-width: 440px) {
-    .hero {
-        padding: 15px;
+    .product-slider {
+        width: 100%;
+        height: fit-content;
     }
 
     .bundles {
-        flex-direction: column;
+        flex-direction: row;
         justify-content: center;
+    }
+
+    .step_1 {
+        padding-right: 0px;
     }
 
     .step_2 {

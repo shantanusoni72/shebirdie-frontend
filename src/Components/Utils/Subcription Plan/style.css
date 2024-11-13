@@ -33,9 +33,17 @@
     display: flex;
     justify-content: space-between;
     list-style: none;
+    flex-wrap: wrap;
 }
 
 .lower ul li {
     font-size: calc(var(--h3) - 4px);
     font-weight: calc(var(--fw) + 100);
+    display: flex;
+    align-items: center;
+    gap: 0px;
+}
+
+.lower ul li img {
+    width: 24px;
 }

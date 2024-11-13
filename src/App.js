@@ -9,7 +9,7 @@ import BirdieShop from './Components/Pages/birdie_shop';
 function App() {
   return (
     <Layout>
-      <Alarm />
+      <Alarm text='Black Friday Sale: Up to 40% on Birdie + $35 in FREE GIFTS | Shop Now' />
       <Header />
       <BirdieShop />
       <Footer />

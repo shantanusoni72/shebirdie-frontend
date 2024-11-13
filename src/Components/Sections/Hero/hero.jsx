@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import Rating from '../../Utils/Rating/rating';
 import ColorPalette from '../../Utils/Color Palette/color_palette';
@@ -7,13 +7,17 @@ import Button from '../../Utils/Button/button';
 import Slider from '../../Utils/Slider/slider';
 import ProductChooser from '../../Utils/Product Chooser/productChooser';
 import Sub_Plans from '../../Utils/Subcription Plan/subs_plan';
+import Label from '../../Utils/Label/label';
+import FAQs from '../../Utils/FAQs/faqs';
 
 export default function Hero() {
     const [isStepOneHidden, HideStepOne] = useState(false);
-    const [[bundleValue, beforePrice, afterPrice], setBundleValue] = useState([0, 0, 0]);
+    const [[bundleValue, beforePrice, afterPrice], setBundleValue] = useState([5, 174.75, 113.59]);
     const [getImageFromColorPalette, setImageFromColorPalette] = useState('https://www.shesbirdie.com/cdn/shop/files/cyan_68a52f3d-ed67-4091-9915-4c9f73f76d05_800x.jpg');
-    
+
     const [getIndexOfProductChooser, setIndexOfProductChooser] = useState(null);
+
+    const [getProductArray, setProductArray] = useState([]);
 
     const ToggleActiveClassList = (index) => {
         const bundles = document.querySelectorAll('.bundle');
@@ -76,6 +80,16 @@ export default function Hero() {
         'https://www.shesbirdie.com/cdn/shop/files/swan_800x.jpg?v=1731002340'
     ]
     // setElementFromProductChooser([...getElementFromProductChooser, ColorProducts[getIndexOfProductChooser]]);
+
+    // console.log(getProductArray)
+
+    console.log(ColorProducts[getIndexOfProductChooser])
+
+    useEffect(() => {
+        document.querySelector('.bundle').classList.add('active');
+        // getProductArray.push(ColorProducts[getIndexOfProductChooser])
+    }, [])
+
     return (
         <div className='hero'>
             <div className="product-slider">
@@ -84,14 +98,17 @@ export default function Hero() {
                 />
             </div>
             <div className="product-info">
-                <h1>BIRDIE</h1>
-                <div className="rating-block">
-                    <Rating />
-                    <label>(10,638)</label>
+                <div className="product-main">
+                    <h1>BIRDIE</h1>
+                    <div className="rating-block">
+                        <Rating />
+                        <label>(10,638)</label>
+                    </div>
+                    <p>This small device is <b>like having a fire alarm in your pocket</b>. When you pull the pin it flashes and beeps
+                        incredibly loud so you can get the attention of everyone around you.
+                    </p>
                 </div>
-                <p>This small device is <b>like having a fire alarm in your pocket</b>. When you pull the pin it flashes and beeps
-                    incredibly loud so you can get the attention of everyone around you.
-                </p>
+                <div className="product-interface">
                 <ColorPalette
                     color_products={ColorProducts}
                     trigger={setImageFromColorPalette}
@@ -161,6 +178,9 @@ export default function Hero() {
                         </div>
                 }
                 <Sub_Plans />
+                <Label />
+                <FAQs />
+            </div>
             </div>
         </div>
     )

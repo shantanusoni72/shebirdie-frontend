@@ -1,4 +1,7 @@
 import './style.css';
+import HassleFree from '../../../assets/hassle-free.png';
+import Battery from '../../../assets/battery-assurance.png';
+import NoQAsked from '../../../assets/no-questions.png';
 
 export default function Sub_Plans() {
     return (
@@ -10,9 +13,9 @@ export default function Sub_Plans() {
             </div>
             <div className="lower">
                 <ul>
-                    <li>Hassle-Free Replacement</li>
-                    <li>Battery Assurance</li>
-                    <li>No Questions Asked</li>
+                    <li><img src={HassleFree} alt='' /><p>Hassle-Free Replacement</p></li>
+                    <li><img src={Battery} alt='' /><p>Battery Assurance</p></li>
+                    <li><img src={NoQAsked} alt='' /><p>No Questions Asked</p></li>
                 </ul>
             </div>
         </div>

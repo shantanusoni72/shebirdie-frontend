@@ -1,13 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Hero from '../Sections/Hero/hero';
 import Banner from '../Sections/Banner/banner';
 import Banner2 from '../Sections/Banner 2/banner_2';
 import TwoColumns from '../Sections/Two Columns/two_columns.jsx';
 import Review from '../Sections/Review/review';
 import Testimonials from '../Sections/Testimonials/testimonials';
+import StickyHeader from '../Utils/Sticky Header/sticky_header.jsx';
 import * as Interface from '../interface.js';
 
-export default function birdie_shop() {
+const showStickyHeader = () => {
+    if(window.scrollY > 1400) {
+        document.querySelector('.sticky_header').classList.remove('disabled');
+    } else {
+        document.querySelector('.sticky_header').classList.add('disabled');
+    }
+}
+
+export default function BirdieShop() {
+    useEffect(() => {
+        window.addEventListener('scroll', showStickyHeader);
+    }, [])
+
     return (
         <div className='birdie_shop'>
             <Hero /> 
@@ -16,6 +29,7 @@ export default function birdie_shop() {
                 paragraph='This is personal because it includes 1 in 3 of our daughters, sisters, and friends.'
                 whichCards={'none'}
             />
+            <StickyHeader />
             <TwoColumns
                 title="When in Doubt, Pull It"
                 paragraph="Feeling uncomfortable? Trust your gut. Pull the Top to start the LOUD siren and flashing strobe light, bringing all eyes on you. When you feel safe, reinsert the Top to deactivate the alarm."

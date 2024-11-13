@@ -12,9 +12,10 @@
     justify-content: space-between;
     align-items: center;
     padding-inline: 35px;
-    padding-block: 20px;
+    padding-block: 15px;
     border-bottom: 1px solid grey;
-    font-size: var(--h4);
+    font-size: calc(var(--h4) + 1px);
+    letter-spacing: 1px;
 }
 
 .hamburger {
@@ -34,17 +35,29 @@
 .menu ul li {
     margin-inline: 20px;
     text-transform: uppercase;
+    display: flex;
+    align-items: center;
 }
 
 .menu ul li a {
     text-decoration: none;
     color: var(--grey);
-    font-weight: calc(var(--fw) + 200);
+    font-weight: calc(var(--fw) + 100);
+    font-family: var(--ff-primary);
 }
 
 .menu ul li a:hover {
     color: var(--primary);
     cursor: pointer;
+}
+
+.menu ul li svg {
+    color: var(--grey)
+}
+
+.end {
+    display: flex;
+    align-items: center;
 }
 
 .end svg {
@@ -57,6 +70,16 @@
     cursor: pointer;
 }
 
+#end-svg-1 {
+    width: 1.3rem;
+    height: 1.3rem;
+}
+
+#end-svg-2 {
+    width: 2.7rem;
+    height: 2.7rem;
+}
+
 .shop_menu {
     width: 50vw;
     border: 1px solid var(--grey);
@@ -65,9 +88,15 @@
     gap: 5px;
     padding: 15px;
     margin: auto;
-    z-index: 5;
-    position: absolute;
     background-color: var(--white);
+}
+
+.hamburger .menu {
+    display: inline;
+}
+
+.hamburger .close {
+    display: none;
 }
 
 .mobile_menu {
@@ -184,7 +213,7 @@
         flex-direction: column;
         gap: 5px;
         margin: 0px;
-        width: 90%;
+        width: 85%;
         border: 1px solid transparent;
     }
 
@@ -194,7 +223,49 @@
 }
 
 @media screen and (max-width: 440px) {
+    .menu {
+        display: none;
+    }
+
     .mobile_menu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
         width: 100%;
+        border: 1px solid var(--grey);
+        padding-bottom: 20px;
+        animation: openMobileMenu 0.4s;
+    }
+
+    .mobile_menu.disabled {
+        display: none;
+    }
+
+    .menu.mobile {
+        display: block;
+        width: 100%;
+    }
+
+    .menu.mobile ul {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .shop_menu.mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin: 0px;
+        width: 85%;
+        border: 1px solid transparent;
+    }
+
+    .shop_menu.mobile .shop_menu_1 {
+        width: 100%;
+    }
+
+    #end-svg-1 {
+        display: none;
     }
 }

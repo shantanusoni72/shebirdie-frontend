@@ -1,0 +1,56 @@
+.faqs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.faqs ul {
+    list-style: none;
+}
+
+.faqs ul hr {
+    border: 1px solid var(--grey);
+}
+
+.list li {
+    padding-block: 10px;
+}
+
+.faqs-open {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.faqs-open p {
+    font-size: calc(var(--h4) + 3px) !important;
+    font-weight: calc(var(--fw) + 100) !important;
+    color: var(--black) !important;
+}
+
+.faqs ul li ul {
+    list-style: disc;
+    font-size: calc(var(--h4) + 4px);
+    font-weight: var(--fw);
+    color: var(--grey);
+    padding-left: 20px;
+}
+
+.faqs li video {
+    width: 10rem;
+}
+
+.faqs li p {
+    font-size: calc(var(--h4) + 4px);
+    font-weight: var(--fw);
+    color: var(--grey);
+}
+
+.inner {
+    display: block;
+}
+
+.inner.disabled {
+    display: none;
+}
