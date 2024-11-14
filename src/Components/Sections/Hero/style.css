@@ -136,11 +136,23 @@
     text-align: center;
 }
 
-@media screen and (max-width: 768px) {
-    .hero {
-        /* flex-direction: column; */
-    }
+.product_body_card img {
+    width: 4vw;
+}
 
+.product_body_card label {
+    background-color: var(--primary);
+    color: var(--white);
+    font-size: calc(var(--h4) - 4px);
+    width: fit-content;
+    border-radius: 10px;
+    padding: 5px;
+    padding-inline: 7px;
+    position: absolute;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
     .product-info {
         padding: 0px;
         padding-block: 20px;

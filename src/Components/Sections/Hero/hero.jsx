@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import './style.css';
 import Rating from '../../Utils/Rating/rating';
 import ColorPalette from '../../Utils/Color Palette/color_palette';
@@ -79,16 +79,18 @@ export default function Hero() {
         'https://www.shesbirdie.com/cdn/shop/files/blossom-silver-star_800x.jpg',
         'https://www.shesbirdie.com/cdn/shop/files/swan_800x.jpg?v=1731002340'
     ]
-    // setElementFromProductChooser([...getElementFromProductChooser, ColorProducts[getIndexOfProductChooser]]);
-
-    // console.log(getProductArray)
-
-    console.log(ColorProducts[getIndexOfProductChooser])
 
     useEffect(() => {
         document.querySelector('.bundle').classList.add('active');
-        // getProductArray.push(ColorProducts[getIndexOfProductChooser])
     }, [])
+
+    useEffect(() => {
+        const ArrayUpdateCondition = ColorProducts[getIndexOfProductChooser] !== undefined &&
+            ColorProducts[getIndexOfProductChooser] !== null && getProductArray.length < bundleValue;
+        if (ArrayUpdateCondition) {
+            setProductArray(currentProductArray => [...currentProductArray, ColorProducts[getIndexOfProductChooser]]);
+        }
+    }, [getIndexOfProductChooser]);
 
     return (
         <div className='hero'>
@@ -109,78 +111,92 @@ export default function Hero() {
                     </p>
                 </div>
                 <div className="product-interface">
-                <ColorPalette
-                    color_products={ColorProducts}
-                    trigger={setImageFromColorPalette}
-                />
-                {
-                    isStepOneHidden ?
-                        <div className="step_2">
-                            <h1>Step 2: Choose Your Colors</h1>
-                            <div className="productChooser">
-                                {
-                                    ColorProducts.map((item, index) => (
-                                        <ProductChooser trigger={setIndexOfProductChooser} index={index} image={item} />
-                                    ))
-                                }
-                            </div>
-                            <div className="product_cart">
-                                <div className="product_heading">
-                                    <p>Your {bundleValue}-pack includes:</p>
-                                    <div>
-                                        <p style={{ textDecoration: 'line-through' }}>${beforePrice}</p>
-                                        <p>${afterPrice}</p>
+                    <ColorPalette
+                        color_products={ColorProducts}
+                        trigger={setImageFromColorPalette}
+                    />
+                    {
+                        isStepOneHidden ?
+                            <div className="step_2">
+                                <h1>Step 2: Choose Your Colors</h1>
+                                <div className="productChooser">
+                                    {
+                                        ColorProducts.map((item, index) => (
+                                            <ProductChooser trigger={setIndexOfProductChooser} index={index} image={item} />
+                                        ))
+                                    }
+                                </div>
+                                <div className="product_cart">
+                                    <div className="product_heading">
+                                        <p>Your {bundleValue}-pack includes:</p>
+                                        <div>
+                                            <p style={{ textDecoration: 'line-through' }}>${beforePrice}</p>
+                                            <p>${afterPrice}</p>
+                                        </div>
+                                    </div>
+                                    <div className="product_body">
+                                        {
+                                            getProductArray.map((item, index) => (
+                                                <div className="product_body_card">
+                                                    <label>X</label>
+                                                    <img src={item} />
+                                                    <p>Bundle #{index + 1}</p>
+                                                </div>
+                                            ))}
+                                        {
+                                        [...Array(bundleValue - getProductArray.length)].map((_, i) => (
+                                            <div className="product_body_card">
+                                                <div className="product_body_card_box">
+                                                </div>
+                                                <p>Bundle #{i + 1}</p>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
-                                <div className="product_body">
-                                    {[...Array(bundleValue)].map((_, i) => (
-                                        <div className="product_body_card">
-                                            <div className="product_body_card_box">
-                                            </div>
-                                            <p>Bundle #{i + 1}</p>
-                                        </div>
-                                    ))}
+                                <div className="next_buttons">
+                                    <Button
+                                        text="Back"
+                                        function={HideStepOne}
+                                        HideIt={false}
+                                        reset={setProductArray}
+                                        responsibility="back-btn"
+                                    />
+                                    <Button 
+                                        text="Add Bundle To Cart"
+                                        function={() => alert('hihi boi')} 
+                                    />
                                 </div>
-                            </div>
-                            <div className="next_buttons">
+                            </div> :
+                            <div className="step_1">
+                                <h1>Step 1: Choose Your Bundle</h1>
+                                <div className="bundles">
+                                    {
+                                        BundleData.map((item, index) => (
+                                            <div onClick={() => ToggleActiveClassList(index)}>
+                                                <Bundles
+                                                    heading={item.heading}
+                                                    image={item.image}
+                                                    amount={item.amount}
+                                                    price_before={item.price_before}
+                                                    price_after={item.price_after}
+                                                    saving={item.saving}
+                                                    key={index}
+                                                />
+                                            </div>
+                                        ))
+                                    }
+                                </div>
                                 <Button
-                                    text="Back"
+                                    text="Next: Choose Your Color"
                                     function={HideStepOne}
-                                    HideIt={false}
+                                    HideIt={true}
                                 />
-                                <Button text="Add Bundle To Cart" />
                             </div>
-                        </div> :
-                        <div className="step_1">
-                            <h1>Step 1: Choose Your Bundle</h1>
-                            <div className="bundles">
-                                {
-                                    BundleData.map((item, index) => (
-                                        <div onClick={() => ToggleActiveClassList(index)}>
-                                            <Bundles
-                                                heading={item.heading}
-                                                image={item.image}
-                                                amount={item.amount}
-                                                price_before={item.price_before}
-                                                price_after={item.price_after}
-                                                saving={item.saving}
-                                                key={index}
-                                            />
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                            <Button
-                                text="Next: Choose Your Color"
-                                function={HideStepOne}
-                                HideIt={true}
-                            />
-                        </div>
-                }
-                <Sub_Plans />
-                <Label />
-                <FAQs />
-            </div>
+                    }
+                    <Sub_Plans />
+                    <Label />
+                    <FAQs />
+                </div>
             </div>
         </div>
     )
