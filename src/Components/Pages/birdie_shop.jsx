@@ -16,15 +16,18 @@ const showStickyHeader = () => {
     }
 }
 
-export default function BirdieShop() {
+export default function BirdieShop(props) {
     useEffect(() => {
-        // window.addEventListener('scroll', showStickyHeader);
+        window.addEventListener('scroll', showStickyHeader);
     }, [])
 
     return (
         <div className='birdie_shop'>
-            <Hero /> 
-            {/* <Banner
+            <Hero
+                ToggleCheckoutCart={Interface.ToggleCheckoutCart}
+                data={[Interface.BundleData, Interface.ProductNames, Interface.ColorProducts ]} 
+            /> 
+            <Banner
                 title='1 in 3 women in the U.S. is assaulted in her lifetime.'
                 paragraph='This is personal because it includes 1 in 3 of our daughters, sisters, and friends.'
                 whichCards={'none'}
@@ -70,7 +73,7 @@ export default function BirdieShop() {
             <Testimonials
                 testimonialText={Interface.testimonial_text}
                 testimonialDetails={Interface.testimonial_details}
-            /> */}
+            />
         </div>
     )
 }

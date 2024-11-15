@@ -191,6 +191,9 @@
         border: 1px solid var(--grey);
         padding-bottom: 20px;
         animation: openMobileMenu 0.4s;
+        position: absolute;
+        background-color: var(--white);
+        z-index: 4;
     }
 
     .mobile_menu.disabled {

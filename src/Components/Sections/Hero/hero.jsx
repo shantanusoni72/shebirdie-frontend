@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import './style.css';
 import Rating from '../../Utils/Rating/rating';
 import ColorPalette from '../../Utils/Color Palette/color_palette';
@@ -9,8 +9,9 @@ import ProductChooser from '../../Utils/Product Chooser/productChooser';
 import Sub_Plans from '../../Utils/Subcription Plan/subs_plan';
 import Label from '../../Utils/Label/label';
 import FAQs from '../../Utils/FAQs/faqs';
+import Cart from '../../Utils/Cart/cart';
 
-export default function Hero() {
+export default function Hero(props) {
     const [isStepOneHidden, HideStepOne] = useState(false);
     const [[bundleValue, beforePrice, afterPrice], setBundleValue] = useState([5, 174.75, 113.59]);
     const [getImageFromColorPalette, setImageFromColorPalette] = useState('https://www.shesbirdie.com/cdn/shop/files/cyan_68a52f3d-ed67-4091-9915-4c9f73f76d05_800x.jpg');
@@ -40,59 +41,32 @@ export default function Hero() {
         });
     };
 
-    const BundleData = [
-        {
-            'heading': '40% Off + $35 Gift\n(Mystery Gift Worth $35)',
-            'image': 'https://cdn.shopify.com/s/files/1/0259/5808/8792/files/5-birdies-35-gift.png?v=1729077998',
-            'amount': '5 bundles',
-            'price_before': '$34.95',
-            'price_after': '$20.97 each',
-            'saving': 'Save $69.90'
-        },
-        {
-            'heading': '25% Off + $15 Gift\n(Keychain $15)',
-            'image': 'https://cdn.shopify.com/s/files/1/0259/5808/8792/files/3-birdies-pack.png?v=1727879596',
-            'amount': '3 bundles',
-            'price_before': '$34.95',
-            'price_after': '$26.21 each',
-            'saving': 'Save $26.21'
-        },
-        {
-            'heading': '15% Off',
-            'image': 'https://cdn.shopify.com/s/files/1/0259/5808/8792/files/birdie-1-pack.png?v=1697548734',
-            'amount': '1 bundle',
-            'price_before': '$34.95',
-            'price_after': '$29.71 each',
-            'saving': 'Save $5.24'
-        }
-    ]
-    const ColorProducts = [
-        'https://www.shesbirdie.com/cdn/shop/files/cyan_68a52f3d-ed67-4091-9915-4c9f73f76d05_800x.jpg',
-        'https://www.shesbirdie.com/cdn/shop/files/black_004a4cbe-ec66-41e9-a215-5d1cab651da7_800x.jpg',
-        'https://www.shesbirdie.com/cdn/shop/files/coral_5705fa3c-67fe-4be7-9be7-71d5c6428c9c_800x.jpg',
-        'https://www.shesbirdie.com/cdn/shop/files/rose-gold_e60ee125-d8d9-4a51-b844-58f748bbd7a6_800x.jpg',
-        'https://www.shesbirdie.com/cdn/shop/files/lavender_8504ff4e-765e-4ce5-8da5-5227a958f16c_800x.jpg',
-        'https://www.shesbirdie.com/cdn/shop/files/blossom_356ea464-0c1d-4b6b-9bcd-cdc5f7cb5178_800x.jpg',
-        'https://www.shesbirdie.com/cdn/shop/files/plum_800x.jpg',
-        'https://www.shesbirdie.com/cdn/shop/files/forest_800x.jpg',
-        'https://www.shesbirdie.com/cdn/shop/files/Fern_silver_star_800x.jpg',
-        'https://www.shesbirdie.com/cdn/shop/files/blossom-silver-star_800x.jpg',
-        'https://www.shesbirdie.com/cdn/shop/files/swan_800x.jpg?v=1731002340'
-    ]
+    const removeProductByIndex = (index) => {
+        const newItems = [...getProductArray];
+        newItems.splice(index, 1);
+        setProductArray(newItems);
+    };
 
     useEffect(() => {
         document.querySelector('.bundle').classList.add('active');
     }, [])
 
     useEffect(() => {
-        const ArrayUpdateCondition = ColorProducts[getIndexOfProductChooser] !== undefined &&
-            ColorProducts[getIndexOfProductChooser] !== null && getProductArray.length < bundleValue;
+        const ArrayUpdateCondition = props.data[2][getIndexOfProductChooser] !== undefined &&
+        props.data[2][getIndexOfProductChooser] !== null && getProductArray.length < bundleValue;
         if (ArrayUpdateCondition) {
-            setProductArray(currentProductArray => [...currentProductArray, ColorProducts[getIndexOfProductChooser]]);
+            setProductArray(currentProductArray => [...currentProductArray, 
+                { 'name': props.data[1][getIndexOfProductChooser], 'image': props.data[2][getIndexOfProductChooser]}
+            ]);
         }
     }, [getIndexOfProductChooser]);
 
-    return (
+    return (<>
+        <Cart
+            ProductArray={getProductArray} 
+            ProductArrayUpdater={setProductArray}
+            removeProductByIndex={removeProductByIndex}
+        />
         <div className='hero'>
             <div className="product-slider">
                 <Slider
@@ -112,7 +86,7 @@ export default function Hero() {
                 </div>
                 <div className="product-interface">
                     <ColorPalette
-                        color_products={ColorProducts}
+                        color_products={props.data[2]}
                         trigger={setImageFromColorPalette}
                     />
                     {
@@ -121,7 +95,7 @@ export default function Hero() {
                                 <h1>Step 2: Choose Your Colors</h1>
                                 <div className="productChooser">
                                     {
-                                        ColorProducts.map((item, index) => (
+                                        props.data[2].map((item, index) => (
                                             <ProductChooser trigger={setIndexOfProductChooser} index={index} image={item} />
                                         ))
                                     }
@@ -138,19 +112,19 @@ export default function Hero() {
                                         {
                                             getProductArray.map((item, index) => (
                                                 <div className="product_body_card">
-                                                    <label>X</label>
-                                                    <img src={item} />
-                                                    <p>Bundle #{index + 1}</p>
+                                                    <label onClick={() => removeProductByIndex(index)}>X</label>
+                                                    <img src={item.image} />
+                                                    <p>{item.name}</p>
                                                 </div>
                                             ))}
                                         {
-                                        [...Array(bundleValue - getProductArray.length)].map((_, i) => (
-                                            <div className="product_body_card">
-                                                <div className="product_body_card_box">
+                                            [...Array(bundleValue - getProductArray.length)].map((_, i) => (
+                                                <div className="product_body_card">
+                                                    <div className="product_body_card_box">
+                                                    </div>
+                                                    <p>Bundle #{i + 1}</p>
                                                 </div>
-                                                <p>Bundle #{i + 1}</p>
-                                            </div>
-                                        ))}
+                                            ))}
                                     </div>
                                 </div>
                                 <div className="next_buttons">
@@ -161,9 +135,9 @@ export default function Hero() {
                                         reset={setProductArray}
                                         responsibility="back-btn"
                                     />
-                                    <Button 
+                                    <Button
                                         text="Add Bundle To Cart"
-                                        function={() => alert('hihi boi')} 
+                                        function={() => props.ToggleCheckoutCart('add-to-cart')}
                                     />
                                 </div>
                             </div> :
@@ -171,7 +145,7 @@ export default function Hero() {
                                 <h1>Step 1: Choose Your Bundle</h1>
                                 <div className="bundles">
                                     {
-                                        BundleData.map((item, index) => (
+                                        props.data[0].map((item, index) => (
                                             <div onClick={() => ToggleActiveClassList(index)}>
                                                 <Bundles
                                                     heading={item.heading}
@@ -199,5 +173,5 @@ export default function Hero() {
                 </div>
             </div>
         </div>
-    )
+    </>)
 }
