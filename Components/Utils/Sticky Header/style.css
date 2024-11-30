@@ -1,11 +1,12 @@
 .sticky_header {
+    width: 95%;
     display: flex;
     justify-content: space-between;
     padding-inline: 40px;
-    padding-block: 30px;
-    background-color: var(--secondary);
+    padding-block: 10px;
+    background-color: #EAFAFF;
     top: 0;
-    position: sticky;
+    position: fixed;
     z-index: 4;
 }
 
@@ -28,6 +29,12 @@
     display: flex;
     gap: 5px;
     align-items: center;
+}
+
+.action h2 {
+    font-size: 17px;
+    font-weight: 700;
+    color: #121212BF;
 }
 
 @media screen and (max-width: 768px) {

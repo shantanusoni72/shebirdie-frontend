@@ -15,6 +15,7 @@ export default function Slider(props) {
     ]
 
     const [getPresentImage, setPresentImage] = useState(sliderMedias[0]);
+    const [getIndex, setIndex] = useState(0);
 
     return (
         <div className='slider'>
@@ -26,7 +27,7 @@ export default function Slider(props) {
                             Your browser does not support the video tag.
                         </video>
                         :
-                        <img src={getPresentImage} alt="product" />
+                        <img src={ getIndex === 0 ? props.effect : getPresentImage} alt="product" />
 
                 }
             </div>
@@ -40,9 +41,15 @@ export default function Slider(props) {
                             </video>
                             :
                             index === 0 ?
+                            <>
                             <img onClick={() => setPresentImage(props.effect)} src={props.effect} alt="product" />
+                            {() => setIndex(index)}
+                            </>
                             :
+                            <>
                             <img onClick={() => setPresentImage(item)} src={item} alt="product" />
+                            {() => setIndex(index)}
+                            </>
                     ))
                 }
             </div>

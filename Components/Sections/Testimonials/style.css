@@ -14,12 +14,11 @@
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    justify-content: start;
+    justify-content: center;
 }
 
 .testimonial_card {
     width: 20vw;
-    /* height: fit-content; */
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 8px;

@@ -9,7 +9,7 @@ export default function TwoColumns(props) {
         <h1>{props.title}</h1>
         <p>{props.paragraph}</p>
         <img src={props.textImage} alt="image_hehe_boi" />
-        <Button text="Shop Now" link="shop-now" />
+        <Button text="Shop Now" link="shop-now" width="70%" padding="20px" />
       </div>
       <div className="media">
         {

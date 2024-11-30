@@ -19,7 +19,7 @@ export default function sticky_header() {
             </div>
             <div className="action">
                 <h2>Save Up To 35%</h2>
-                <Button text="Shop Now" />
+                <Button text="Shop Now" width="250px" padding="15px" />
             </div>
         </div>
     )

@@ -3,6 +3,7 @@ import './style.css';
 import Button from '../../Utils/Button/button';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Label from '../../Utils/Label/label';
 
 export default function Review(props) {
 
@@ -56,7 +57,8 @@ export default function Review(props) {
           ))
         }
       </div>
-      <Button text='Shop Now' />
+      <Button text='Shop Now' width='300px' padding='15px' />
+      <Label />
     </div>
   )
 }

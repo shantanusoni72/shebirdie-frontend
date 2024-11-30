@@ -51,7 +51,7 @@ export default function footer() {
                     </ul>
                 </div>
             </div>
-            <div className="row">
+            <div className="row-2">
                 <p>© 2024, She's Birdie <a href="#">Powered by Shopify</a></p>
             </div>
         </div>
