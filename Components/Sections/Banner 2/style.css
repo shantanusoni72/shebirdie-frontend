@@ -1,0 +1,91 @@
+.banner_2 {
+    background-color: var(--primary);
+    color: var(--white);
+    padding-block: 70px;
+    padding-inline: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.banner_2 h1 {
+    width: 60%;
+    font-size: var(--h1);
+    font-weight: var(--fw);
+}
+
+.banner_2 p {
+    width: 60%;
+    font-size: var(--h3);
+    font-weight: var(--fw);
+    line-height: 30px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    width: 90%;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card_2 {
+    width: 30vh;
+    text-align: center;
+}
+
+.card_2 img {
+    width: 100%;
+    border: 1px solid var(--white);
+    border-radius: 10px;
+}
+
+.card_2 p {
+    width: 100%;
+    font-size: var(--h4);
+    color: var(--white);
+}
+
+@media screen and (max-width: 768px) {
+    .banner_2 {
+        gap: 10px;
+        padding-inline: 5px;
+        padding-block: 35px;
+    }
+    
+    .banner_2 h1 {
+        width: 80%;
+        font-size: var(--h2);
+        text-align: center;
+    }
+    
+    .banner_2 p {
+        width: 80%;
+        font-size: var(--h3);
+    }
+    
+    .cards {
+        display: flex;
+        width: 100%;
+        gap: 20px;
+    }
+    
+    .card_2 p {
+        width: 100%;
+        font-size: var(--h4);
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .banner_2 h1 {
+        width: 80%;
+        font-size: calc(var(--h2) - 2px);
+        text-align: center;
+    }
+    
+    .banner_2 p {
+        width: 80%;
+        font-size: calc(var(--h3) - 2px);
+    }
+}
