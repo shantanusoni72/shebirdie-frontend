@@ -1,0 +1,49 @@
+@keyframes arrowRightMouseOver {
+    0% {
+        transform: translateX(0px);
+    }
+    100% {
+        transform: translateX(100px);
+    }
+}
+
+@keyframes arrowRightMouseOut {
+    0% {
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.alarm {
+    padding: 11px;
+    background-color: var(--primary);
+    text-align: center;
+}
+
+.alarm:hover {
+    background-color: #2947c0;
+    cursor: pointer;
+}
+
+.alarm p {
+    color: var(--white);
+    font-size: var(--h4);
+    letter-spacing: var(--letter-spacing);
+    font-weight: calc(var(--fw) + 200);
+    font-family: var(--ff-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#arrow-right {
+    color: var(--white)
+}
+
+@media screen and (max-width: 440px) {
+    .alarm p {
+        font-size: calc(var(--h4) - 4px);
+    }
+}

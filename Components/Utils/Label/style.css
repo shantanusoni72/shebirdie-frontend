@@ -1,0 +1,19 @@
+.label {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.label span {
+    display: flex;
+}
+
+.label p {
+    font-size: calc(var(--h4) + 2px);
+    font-weight: calc(var(--fw) + 200);
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}

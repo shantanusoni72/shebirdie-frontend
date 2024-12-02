@@ -1,0 +1,31 @@
+.rating_board {
+    display: flex;
+}
+
+.rating_board svg {
+    color: var(--primary);
+    transform: scale(1.2);
+}
+
+@media screen and (max-width: 768px) {
+    .rating_board {
+        width: 20vw;
+        gap: 3px;
+    }
+    
+    .rating_board svg {
+        transform: scale(1.2);
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .rating_board {
+        width: 30vw;
+        gap: 0px;
+        flex-direction: row;
+    }
+    
+    .rating_board svg {
+        transform: scale(1);
+    }
+}

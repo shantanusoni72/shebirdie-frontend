@@ -1,0 +1,23 @@
+.cart_product_card_quantity_tracker {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+}
+
+.quantity_tracker {
+    display: flex;
+    gap: 5px;
+    border: 1px solid var(--grey);
+    border-radius: 5px;
+    align-items: center;
+}
+
+.quantity_tracker svg {
+    color: var(--grey);
+    cursor: pointer;
+}
+
+.bin {
+    cursor: pointer;
+}

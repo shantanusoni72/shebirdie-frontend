@@ -1,0 +1,14 @@
+.product_chooser {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px;
+    width: 10%;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 440px) {
+    .product_chooser {
+        width: 20%;
+    }
+}

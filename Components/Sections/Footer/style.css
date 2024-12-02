@@ -1,0 +1,125 @@
+.footer {
+    background-color: var(--primary);
+    padding-inline: 50px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.row {
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-block: 0px;
+}
+
+.row-2 p {
+    border-top: 1px solid #2542b4;
+    font-size: var(--h4);
+    font-weight: 500;
+    padding-block: 40px;
+    text-align: center;
+    color: var(--white);
+}
+
+.row-2 p a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: var(--h4);
+    font-weight: 500;
+}
+
+.row-2 p a:hover {
+    text-decoration: underline;
+    color: var(--black);
+}
+
+.col.first {
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+
+.col.first img {
+    width: 100%;
+}
+
+.col .social {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.col.second, .col.third {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-weight: calc(var(--fw) + 200);
+    padding-bottom: 50px;
+}
+
+.col.third {
+    padding-right: 270px;
+    margin-bottom: 20px;
+}
+
+.col h1 {
+    font-family: var(--ff-primary);
+    text-transform: uppercase;
+    font-size: var(--h3);
+    color: var(--secondary);
+}
+
+.shop-list, .help-list {
+    list-style: none;
+    font-size: var(--h4);
+    text-transform: uppercase;
+}
+
+.shop-list li, .help-list li {
+    margin-block: 15px;
+}
+
+.shop-list li a, .help-list li a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.shop-list li a:hover, .help-list li a:hover {
+    color: var(--black);
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 768px) {
+    .col.first {
+        width: 30%;
+    }
+    
+    .col.third {
+        padding-right: 0px;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .footer {
+        height: fit-content;
+    }
+
+    .col.first {
+        width: 70%;
+    }
+
+    .row {
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .col.third {
+        padding-right: 0px;
+    }
+}

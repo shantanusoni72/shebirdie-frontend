@@ -1,0 +1,139 @@
+.sub_plan {
+    background-color: var(--secondary);
+    border: 1px solid var(--primary);
+    border-radius: 10px;
+    filter: opacity(0.59);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.fake_button div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.sub_plan.active {
+    filter: opacity(1);
+}
+
+.sub_plan p {
+    font-size: var(--h4);
+    font-weight: calc(var(--fw) + 100);
+}
+
+.fake_button {
+    background-color: var(--primary);
+    color: var(--white);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.fake_button p {
+    font-size: var(--h3);
+    font-weight: calc(var(--fw) + 300);
+}
+
+.lower ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.lower ul li {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.lower ul li img {
+    width: 24px;
+}
+
+.lower ul li p {
+    font-size: calc(var(--h3) - 4px);
+    font-weight: calc(var(--fw) + 100);
+    line-height: 18px;
+    text-align: left;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.switch-slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked+.switch-slider {
+    background-color: white;
+}
+
+input:focus+.switch-slider {
+    box-shadow: 0 0 1px white;
+}
+
+input:checked+.switch-slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+    background-color: var(--primary);
+}
+
+.switch-slider.round {
+    border-radius: 34px;
+}
+
+.switch-slider.round:before {
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 440px) {
+    .lower ul li {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .lower ul li img {
+        width: 30%;
+    }
+}
