@@ -70,6 +70,7 @@ export default function Cart(props) {
                     <Button
                         text="Checkout"
                         function={() => alert('AWERSOME!!!!')} 
+                        width="95%"
                     />
                     <p>Taxes and shipping calculated at checkout</p>
                 </div>

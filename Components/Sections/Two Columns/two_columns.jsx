@@ -26,8 +26,8 @@ export default function TwoColumns(props) {
           props.isImage ?
             <img src={props.mainMedia} alt="compare" />
             :
-            <video width="320" height="240" autoPlay={true}>
-              <source src={props.mainMedia} type="video/mp4" />
+            <video width="320" height="240" controls={true}>
+              <source src='https://cdn.shopify.com/s/files/1/0259/5808/8792/files/Birdie_1.mp4?v=1626356708' />
               Your browser does not support the video tag.
             </video>
         }

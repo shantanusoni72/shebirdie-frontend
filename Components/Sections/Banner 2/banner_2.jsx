@@ -1,7 +1,9 @@
 import React from 'react';
+import CustomCarousel from '../../Utils/Custom Carousel/custom_carousel';
 import './style.css';
 
 export default function banner_2(props) {
+
   return (
     <div className='banner_2'>
       <h1>Always stay ready and carry confidence with you wherever you go...</h1>
@@ -28,6 +30,14 @@ export default function banner_2(props) {
             <p>{props.slide_5.text}</p>
         </div>
       </div>
+      <CustomCarousel
+        slide_1={props.slide_1} 
+        slide_2={props.slide_2} 
+        slide_3={props.slide_3} 
+        slide_4={props.slide_4} 
+        slide_5={props.slide_5}  
+      />
+      
     </div>
   )
 }
