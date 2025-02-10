@@ -1,8 +1,8 @@
 import './App.css';
-import Header from './Components/Sections/Header/header';
-import Alarm from './Components/Sections/Alarm/alarm';
-import Footer from './Components/Sections/Footer/footer';
-import BirdieShop from './Components/Pages/birdie_shop';
+import Header from './Sections/Header/header';
+import Alarm from './Sections/Alarm/alarm';
+import Footer from './Sections/Footer/footer';
+import BirdieShop from './Pages/birdie_shop';
 
 function App() {
   return (<>
